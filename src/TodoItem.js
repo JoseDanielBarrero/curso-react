@@ -1,18 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './TodoItem.css';
 
-function renderCompleted(completed) {
-    if(completed)
-    {
-        return (<span>VVV</span>)
-    }
-    return(<span>V</span>)
-}
+
 function TodoItem(props) {
     return(
-      <li>
-        {renderCompleted(props.completed)}
-        <p>{props.text}</p>
-        <span>X</span>
+      <li className='TodoItem'>
+        <span className={`TodoItem__Check ${props.completed && "TodoItem__Check--completed"}`}>V</span>
+        <span className='TodoItem__Text'>{props.text}</span>
+        <span className='TodoItem__DeleteButton'>X</span>
       </li>
     );
   }

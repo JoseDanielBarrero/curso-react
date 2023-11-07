@@ -1,0 +1,41 @@
+.TodoItem {
+    max-width: 75%;
+    border: 2px solid rgb(26, 149, 221);
+    margin: 20px auto;
+    border-radius: 12px;
+    padding: 1rem;
+    position: relative;
+}
+
+.TodoItem__Text {
+    font-size: 24px;
+    padding: 2rem;
+}
+
+.TodoItem__DeleteButton {
+    position:absolute;
+    right: 1.5%;
+    bottom: 30%;
+    font-size: 24px;
+}
+
+.TodoItem__DeleteButton:hover {
+    color:red;
+    cursor: pointer;
+}
+
+.TodoItem__Check {
+    font-size: 24px;
+}
+
+.TodoItem__Check:hover {
+    color: rgb(26, 149, 221);
+    cursor: pointer;
+}
+
+.TodoItem__Check:active {
+    color: black;
+}
+.TodoItem__Check--completed {
+    color: green;
+}
