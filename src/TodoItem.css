@@ -5,10 +5,13 @@
     border-radius: 2rem;
     padding: 1rem;
     position: relative;
+    box-shadow: 0 4px 4px rgba(49, 138, 172, 1);
+    font-size: 24px;
+    background-color: aliceblue;
 }
 
 .TodoItem__Text {
-    font-size: 24px;
+    
     padding: 2rem;
 }
 
@@ -16,16 +19,11 @@
     position:absolute;
     right: 1.5%;
     bottom: 30%;
-    font-size: 24px;
 }
 
 .TodoItem__DeleteButton:hover {
     color:red;
     cursor: pointer;
-}
-
-.TodoItem__Check {
-    font-size: 24px;
 }
 
 .TodoItem__Check:hover {
@@ -38,4 +36,8 @@
 }
 .TodoItem__Check--completed {
     color: green;
+}
+
+.TodoItem__Text--completed {
+    text-decoration: line-through;
 }

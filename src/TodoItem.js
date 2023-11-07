@@ -6,7 +6,7 @@ function TodoItem(props) {
     return(
       <li className='TodoItem'>
         <span className={`TodoItem__Check ${props.completed && "TodoItem__Check--completed"}`}>V</span>
-        <span className='TodoItem__Text'>{props.text}</span>
+        <span className={`TodoItem__Text ${props.completed && "TodoItem__Text--completed"}`}>{props.text}</span>
         <span className='TodoItem__DeleteButton'>X</span>
       </li>
     );

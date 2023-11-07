@@ -1,0 +1,21 @@
+.CreateButton{
+    font-size: 48px;
+    border: 5px solid green;
+    border-radius: 100%;
+    width: 5rem;
+    position: fixed;
+    bottom: 10%;
+    right: 5%;
+    color: white;
+    background-color: green;
+}
+
+.CreateButton:hover {
+    box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+    transition: all 0.2s ease;
+}
+
+.CreateButton:active {
+    background-color: rgb(2, 102, 2);
+    border-color: rgb(2, 102, 2);
+}

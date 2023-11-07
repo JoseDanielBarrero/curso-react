@@ -13,7 +13,7 @@ const defaultTodos = [
 ]
 function App() {
   return (
-    <>
+    <div className='App'>
       <TodoCounter total={25} completed={10}/>
       <TodoSearch/>
       <TodoList>
@@ -22,7 +22,7 @@ function App() {
         ))}
       </TodoList>
       <CreateTodoButton/>
-    </>
+    </div>
   );
 }
 
