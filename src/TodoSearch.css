@@ -1,0 +1,14 @@
+.TodoSearch {
+    min-height: 5vh;
+    min-width: 75%;
+    max-width: 75%;
+    display: block;
+    margin: auto;
+    font-size: 24px;
+    padding: 1rem;
+    border-radius: 2rem;
+}
+
+.TodoSearch:focus{
+    outline-color: rgb(26, 149, 221);
+}
