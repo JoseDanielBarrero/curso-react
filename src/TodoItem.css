@@ -5,6 +5,7 @@
     border-radius: 2rem;
     padding: 1rem;
     position: relative;
+    box-shadow: 0 4px 4px rgba(49, 138, 172, 1);
 }
 
 .TodoItem__Text {
