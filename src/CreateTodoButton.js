@@ -1,5 +1,6 @@
 import React from 'react';
-import "./CreateTodoButton.css"
+import "./CreateTodoButton.css";
+import {IoIosAddCircle, IoIosAddCircleOutline} from 'react-icons/io'
 
 function CreateTodoButton() {
 
@@ -7,7 +8,7 @@ function CreateTodoButton() {
     
   }
   return (
-    <button className='CreateButton'>+</button>
+    <IoIosAddCircle className='CreateButton'>+</IoIosAddCircle>
   )
 }
 

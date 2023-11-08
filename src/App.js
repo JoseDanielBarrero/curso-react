@@ -30,6 +30,20 @@ function App() {
     }
   )
 
+  function completeTodo (text) {
+    const newTodos = [...todos];
+    const indexTodo = newTodos.findIndex((todo) => todo.text ==text);
+    newTodos[indexTodo].completed = !newTodos[indexTodo].completed;
+    setTodos(newTodos)
+  }
+
+  function deleteTodo (text) {
+    const newTodos = [...todos];
+    const indexTodo = newTodos.findIndex((todo) => todo.text ==text);
+    newTodos.splice(indexTodo,1);
+    setTodos(newTodos)
+  }
+
 
   return (
     <>
@@ -39,7 +53,13 @@ function App() {
       />
       <TodoList>
         {searchedTodos.map(todo => (
-          <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
+          <TodoItem 
+            key={todo.text} 
+            text={todo.text} 
+            completed={todo.completed}
+            onComplete={()=> completeTodo(todo.text)}
+            onDelete={()=> deleteTodo(todo.text)}
+          />
         ))}
       </TodoList>
       <CreateTodoButton/>
