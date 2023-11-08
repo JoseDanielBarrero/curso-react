@@ -2,8 +2,14 @@ import React from 'react';
 import "./CreateTodoButton.css"
 
 function CreateTodoButton() {
+
+  function createNewTask(event) {
+    
+  }
   return (
-    <button className='CreateButton'>+</button>
+    <button className='CreateButton' onClick={(event) => {
+      console.log(event)
+    }}>+</button>
   )
 }
 

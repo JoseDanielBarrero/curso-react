@@ -4,25 +4,46 @@ import {TodoSearch} from './TodoSearch';
 import {TodoList} from './TodoList';
 import { TodoItem } from './TodoItem';
 import CreateTodoButton from './CreateTodoButton';
+import React from 'react';
 
-const defaultTodos = [
-  {text: 'Doblar Ropa', completed: false},
-  {text: 'Subir los cambios al repo de git', completed: false},
-  {text: 'metas noviembre', completed: false},
-  {text: 'Depositar efectivo', completed: true}
-]
+
+
 function App() {
+
+  const defaultTodos = [
+    {text: 'Doblar Ropa', completed: false},
+    {text: 'Subir los cambios al repo de git', completed: false},
+    {text: 'metas noviembre', completed: false},
+    {text: 'Depositar efectivo', completed: true}
+  ]
+  // Estados
+
+  const [searchValue, setSearchValue] = React.useState('');
+  const [todos, setTodos] = React.useState(defaultTodos);
+  
+  const completedTodos = todos.filter(todo => todo.completed).length;
+  const searchedTodos = todos.filter(
+    (todo) => {
+      const todoText = todo.text.toLowerCase();
+      const searchedText = searchValue.toLowerCase();
+      return todoText.includes(searchedText);
+    }
+  )
+
+
   return (
-    <div className='App'>
-      <TodoCounter total={25} completed={10}/>
-      <TodoSearch/>
+    <>
+      <TodoCounter total={todos.length} completed={completedTodos}/>
+      <TodoSearch 
+        searchValue={searchValue} setSearchValue={setSearchValue}
+      />
       <TodoList>
-        {defaultTodos.map(todo => (
+        {searchedTodos.map(todo => (
           <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
         ))}
       </TodoList>
       <CreateTodoButton/>
-    </div>
+    </>
   );
 }
 

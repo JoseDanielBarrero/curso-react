@@ -1,8 +1,7 @@
-.App {
-  background-color: rgb(170, 170, 170);
-  height: 100vh;
-}
 
+html{
+  background-color: rgb(170, 170, 170);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
