@@ -7,9 +7,7 @@ function CreateTodoButton() {
     
   }
   return (
-    <button className='CreateButton' onClick={(event) => {
-      console.log(event)
-    }}>+</button>
+    <button className='CreateButton'>+</button>
   )
 }
 
