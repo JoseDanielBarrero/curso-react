@@ -6,7 +6,28 @@ import { TodoItem } from './TodoItem';
 import CreateTodoButton from './CreateTodoButton';
 import React from 'react';
 
+// Custom Hook Local Storage
+function useLocalStorage (itemName, initialValue){
+  let parsedItems;
+  const localStorageItems = localStorage.getItem(itemName);
+  if(!localStorageItems)
+  {
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
+    parsedItems=initialValue;
+    
+  }
+  else{
+    parsedItems =  JSON.parse(localStorage.getItem(itemName))
+  }
+  const [items, setItems]= React.useState(parsedItems);
+  
+  const saveItems = (newItems) => {
+    setItems(newItems)
+    localStorage.setItem(itemName, JSON.stringify(newItems));
+  }
 
+  return [items, saveItems];
+}
 
 function App() {
 
@@ -16,11 +37,14 @@ function App() {
     {text: 'metas noviembre', completed: false},
     {text: 'Depositar efectivo', completed: true}
   ]
+
   // Estados
 
   const [searchValue, setSearchValue] = React.useState('');
-  const [todos, setTodos] = React.useState(defaultTodos);
+  const [todos, saveTodos] = useLocalStorage('Todos_V1',defaultTodos);
   
+  // Estados derivados 
+
   const completedTodos = todos.filter(todo => todo.completed).length;
   const searchedTodos = todos.filter(
     (todo) => {
@@ -30,18 +54,23 @@ function App() {
     }
   )
 
+  ///////////////////////////////////////////////
+  // Funciones
+  ///////////////////////////////////////////////
+
+  
   function completeTodo (text) {
     const newTodos = [...todos];
     const indexTodo = newTodos.findIndex((todo) => todo.text ==text);
     newTodos[indexTodo].completed = !newTodos[indexTodo].completed;
-    setTodos(newTodos)
+    saveTodos(newTodos);
   }
 
   function deleteTodo (text) {
     const newTodos = [...todos];
     const indexTodo = newTodos.findIndex((todo) => todo.text ==text);
     newTodos.splice(indexTodo,1);
-    setTodos(newTodos)
+    saveTodos(newTodos);
   }
 
 
