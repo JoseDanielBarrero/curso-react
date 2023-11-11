@@ -7,7 +7,10 @@
     font-size: 24px;
     padding: 1rem;
     border-radius: 2rem;
+    border-color: transparent;
     background-color: aliceblue;
+    
+
 }
 
 .TodoSearch:focus{
