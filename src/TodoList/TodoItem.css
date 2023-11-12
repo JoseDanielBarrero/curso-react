@@ -8,6 +8,8 @@
     box-shadow: 0 4px 4px rgba(49, 138, 172, 1);
     background-color: aliceblue;
     font-size: 24px;
+    max-height: 5vh;
+    text-overflow: ellipsis;
 }
 
 .TodoItem__Text {
