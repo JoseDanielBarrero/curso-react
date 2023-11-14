@@ -2,13 +2,19 @@ import React from 'react';
 import "./CreateTodoButton.css";
 import {IoIosAddCircle, IoIosAddCircleOutline} from 'react-icons/io'
 
-function CreateTodoButton() {
+function CreateTodoButton(props) {
 
-  function createNewTask(event) {
-    
+  function createNewTask() {
+    const newTodos = [...props.todos];
+    newTodos.push({text: 'Agregado por boton', completed: false})
+    props.saveTodos(newTodos)
   }
   return (
-    <IoIosAddCircle className='CreateButton'>+</IoIosAddCircle>
+    <IoIosAddCircle className='CreateButton' 
+    onClick={() => 
+      {
+        createNewTask()
+      }}>+</IoIosAddCircle>
   )
 }
 

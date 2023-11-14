@@ -10,17 +10,21 @@ import AppUI from './AppUI';
 
 function App() {
 
+
   const defaultTodos = [
     {text: 'Doblar Ropa', completed: false},
     {text: 'Subir los cambios al repo de git', completed: false},
     {text: 'metas noviembre', completed: false},
     {text: 'Depositar efectivo', completed: true}
   ]
-
   // Estados
-
   const [searchValue, setSearchValue] = React.useState('');
-  const [todos, saveTodos] = useLocalStorage('Todos_V1',defaultTodos);
+  const {
+    items: todos,
+    saveItems: saveTodos,
+    loading,
+    error
+  } = useLocalStorage('Todos_V1',[]);
   
   // Estados derivados 
 
@@ -34,6 +38,9 @@ function App() {
     }
   )
 
+  /* React.useEffect(() =>{
+    console.log('Log 2');
+}, [totalTodos]) */
   ///////////////////////////////////////////////
   // Funciones
   ///////////////////////////////////////////////
@@ -63,7 +70,11 @@ function App() {
         setSearchValue={setSearchValue}
         searchedTodos={searchedTodos}
         completeTodo={completeTodo}
-        deleteTodo={deleteTodo}      
+        deleteTodo={deleteTodo} 
+        loading={loading}
+        error = {error}
+        saveTodos = {saveTodos} 
+        todos={todos}    
         />
     </>
   );
