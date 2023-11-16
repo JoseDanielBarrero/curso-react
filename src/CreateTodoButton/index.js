@@ -8,14 +8,17 @@ function CreateTodoButton() {
     const 
     {
       saveTodos, 
-      todos
+      todos,
+      openModal,
+      setOpenModal
     }=React.useContext(TodoContext);
 
   function createNewTask() {
-    const newTodos = [...todos];
+    /* const newTodos = [...todos];
     const newText = "Agregado por boton" + " " + (newTodos.length+1);
     newTodos.push({text: newText, completed: false})
-    saveTodos(newTodos)
+    saveTodos(newTodos) */
+    setOpenModal(true);
   }
   return (
     <IoIosAddCircle className='CreateButton' 
