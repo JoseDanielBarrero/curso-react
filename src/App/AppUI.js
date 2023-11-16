@@ -1,5 +1,6 @@
 import React from 'react'
 import CreateTodoButton from '../CreateTodoButton'
+import { TodoContext } from '../TodoContext'
 import { TodoCounter } from '../TodoCounter'
 import { TodoItem } from '../TodoList/TodoItem'
 import { TodoList } from '../TodoList/TodoList'
@@ -8,26 +9,19 @@ import TodosEmpty from '../TodosEmpty'
 import TodosError from '../TodosError'
 import TodosLoading from '../TodosLoading'
 
-function AppUI({
-    totalTodos,
-    completedTodos,
-    searchValue,
-    setSearchValue,
-    searchedTodos,
-    completeTodo,
-    deleteTodo,
-    loading,
-    error,
-    saveTodos, 
-    todos
-  }
-) {
+function AppUI() {
+
+  const{
+      searchedTodos,
+      completeTodo,
+      deleteTodo,
+      loading,
+      error,
+  }=React.useContext(TodoContext);
   return (
     <>
-      <TodoCounter total={totalTodos} completed={completedTodos}/>
-      <TodoSearch
-        searchValue={searchValue} setSearchValue={setSearchValue}
-      />
+      <TodoCounter />
+      <TodoSearch />
       <TodoList>
         {loading && <TodosLoading/>}
         {error && <TodosError/>}
@@ -42,10 +36,7 @@ function AppUI({
           />
         ))}
       </TodoList>
-      <CreateTodoButton
-        saveTodos={saveTodos}
-        todos={todos}
-      />
+      <CreateTodoButton />
     </>
   )
 }
