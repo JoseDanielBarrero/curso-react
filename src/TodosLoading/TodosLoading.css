@@ -1,0 +1,23 @@
+.TodoLoading__Item{
+    max-width: 75%;
+    margin: 20px auto;
+    border-radius: 2rem;
+    padding: 1rem;
+    position: relative;
+    background: linear-gradient(90deg, rgb(182, 194, 206), rgb(130, 145, 160));
+    background-size: 400% 400%;
+    min-height: 3vh;
+    animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
