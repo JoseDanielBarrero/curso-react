@@ -9,15 +9,13 @@ function TodoForm() {
         openModal,
         setOpenModal,
         todos,
-        saveTodos
+        saveTodos,
+        addTodo
     }=React.useContext(TodoContext);
 
     const createNewTask = () => {
-
-        const newTodos = [...todos];
-        newTodos.push({text: task, completed: false})
-        saveTodos(newTodos)
-        setOpenModal(false)
+        addTodo(task);
+        setOpenModal(false);
     }
 
   return (
@@ -29,7 +27,21 @@ function TodoForm() {
             placeholder='Crear una tarea' value={task}
             onChange={(e) =>{
                 setTask(e.target.value)
-            }}></input>
+            }}
+            onKeyDownCapture={(e)=> {
+                if(e.keyCode === 13)
+                {
+                    createNewTask();
+                }
+                else if( e.keyCode === 27)
+                {
+                    setOpenModal(false);
+                }
+            }}
+            autoFocus></input>
+        <button className='TodoForm__Button TodoForm__Button--cancel' onClick={() => {
+            setOpenModal(false);
+        }}>Cancelar</button>
         <button className='TodoForm__Button' onClick={createNewTask}>Agregar Tarea</button>
     </div>
   )
