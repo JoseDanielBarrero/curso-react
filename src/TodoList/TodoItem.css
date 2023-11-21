@@ -1,25 +1,36 @@
 .TodoItem {
-    max-width: 75%;
+    width: 75%;
     border: 2px solid rgb(26, 149, 221);
     margin: 20px auto;
     border-radius: 2rem;
     padding: 1rem;
+    padding-right: 0;
     position: relative;
     box-shadow: 0 4px 4px rgba(49, 138, 172, 1);
     background-color: aliceblue;
     font-size: 24px;
-    max-height: 5vh;
+    height: 4vh;
     text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .TodoItem__Text {
-    padding: 2rem;
+    padding:2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-width: 50vw;
+    position: absolute;
+    text-overflow: ellipsis;
 }
 
 .TodoItem__DeleteButton {
     font-size: 32px;
     position:absolute;
-    right: 1.5%;
+    width: 4vh;
+    right: 0.01%;
+    top: 25%;
+    background-color: aliceblue;
+    padding-right: 1rem;
 }
 
 .TodoItem__DeleteButton:hover {
