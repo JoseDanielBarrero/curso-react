@@ -9,10 +9,24 @@
     border-radius: 2rem;
     border-color: transparent;
     background-color: aliceblue;
-    
+}
 
+.TodoSearch__Container{
+    position: relative;
 }
 
 .TodoSearch:focus{
     outline-color: rgb(26, 149, 221);
+}
+
+.AddTaskButton{
+    height: 6.8vh;
+    width: 6.8vh;
+    border-radius: 100%;
+    font-size: 24px;
+    position: absolute;
+    right: 11.25%;
+    top: 0.01%;
+    border: 1px transparent;
+    background-color: green;
 }

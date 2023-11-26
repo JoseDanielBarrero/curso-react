@@ -5,18 +5,30 @@ import './TodoSearch.css';
 function TodoSearch() {
 
   const{
-    searchValue,
-    setSearchValue,
+    addTodo
   }=React.useContext(TodoContext);
 
-
+  const [task, setTask] = React.useState('')
+  const createNewTask = () => 
+  {
+      addTodo(task);
+  }
   return (
-    <input className='TodoSearch' placeholder='Buscar una tarea' 
-      value={searchValue}
-      onChange={(event) =>{
-        setSearchValue(event.target.value)
-
-    }}/>
+    <div className='TodoSearch__Container'>
+      <input className='TodoSearch' placeholder='Buscar una tarea' 
+        value={task}
+          onChange={(e) =>{
+            setTask(e.target.value)
+        }}
+        onKeyDownCapture={(e)=> {
+            if(e.keyCode === 13)
+            {
+                createNewTask();
+            }
+        }}/>
+      <button className='AddTaskButton' onClick={() => {createNewTask()}}>+</button>
+    </div>
+    
   )
 }
 
