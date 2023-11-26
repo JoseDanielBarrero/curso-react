@@ -12,6 +12,7 @@ function TodoSearch() {
   const createNewTask = () => 
   {
       addTodo(task);
+      setTask('');
   }
   return (
     <div className='TodoSearch__Container'>
