@@ -15,7 +15,7 @@ function TodoSearch() {
   }
   return (
     <div className='TodoSearch__Container'>
-      <input className='TodoSearch' placeholder='Buscar una tarea' 
+      <input className='TodoSearch' placeholder='Agregar una tarea' 
         value={task}
           onChange={(e) =>{
             setTask(e.target.value)
