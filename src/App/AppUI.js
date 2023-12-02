@@ -40,7 +40,6 @@ function AppUI() {
           />
         ))}
       </TodoList>
-      <CreateTodoButton />
 
       {openModal && (
       <Modal>
