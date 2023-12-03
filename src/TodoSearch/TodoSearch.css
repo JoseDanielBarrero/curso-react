@@ -9,6 +9,7 @@
     border-radius: 2rem;
     border-color: transparent;
     background-color: aliceblue;
+    position:sticky;
 }
 
 .TodoSearch__Container{

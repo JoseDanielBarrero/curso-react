@@ -41,13 +41,22 @@ function TodoProvider({children}){
     }
 
     function addTodo (text) {
-      if(text !='')
+      if(text !='' && !verifyTodo(text))
       {
           const newTodos = [...todos];
-          newTodos.push({text: text, completed: false})
+          newTodos.unshift({text: text, completed: false})
           saveTodos(newTodos)
       }
   }
+
+    function  verifyTodo(text) {
+      let verifier = todos.find((element) => element.text === text);
+      if(verifier)
+      {
+          return true
+      }
+      return false;
+    }
 
     return(
         <TodoContext.Provider value={
@@ -65,7 +74,8 @@ function TodoProvider({children}){
                 todos,
                 openModal,
                 setOpenModal,
-                addTodo
+                addTodo,
+                verifyTodo
             }}>
             {children}
         </TodoContext.Provider>
