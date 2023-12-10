@@ -21,8 +21,8 @@
 }
 
 .AddTaskButton{
-    height: 6.8vh;
-    width: 6.8vh;
+    height: 64px;
+    width: 64px;
     border-radius: 100%;
     font-size: 48px;
     position: absolute;
