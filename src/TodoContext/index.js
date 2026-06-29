@@ -30,14 +30,36 @@ function TodoProvider({children}){
         const newTodos = [...todos];
         const indexTodo = newTodos.findIndex((todo) => todo.text ==text);
         newTodos[indexTodo].completed = !newTodos[indexTodo].completed;
-        saveTodos(newTodos);
+        const sortedTodos = [...newTodos].sort((a, b) => {
+          // Primero completed: false
+          if (a.completed !== b.completed) {
+            return Number(a.completed) - Number(b.completed);
+          }
+          // Luego orden alfabético por text
+          return a.text.localeCompare(b.text, "es", {
+            sensitivity: "base",
+          });
+        }
+        )
+        saveTodos(sortedTodos);
     }
 
     function deleteTodo (text) {
         const newTodos = [...todos];
         const indexTodo = newTodos.findIndex((todo) => todo.text ==text);
         newTodos.splice(indexTodo,1);
-        saveTodos(newTodos);
+        const sortedTodos = [...newTodos].sort((a, b) => {
+          // Primero completed: false
+          if (a.completed !== b.completed) {
+            return Number(a.completed) - Number(b.completed);
+          }
+          // Luego orden alfabético por text
+          return a.text.localeCompare(b.text, "es", {
+            sensitivity: "base",
+          });
+        }
+        )
+        saveTodos(sortedTodos);
     }
 
     function addTodo (text) {
