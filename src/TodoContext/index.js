@@ -45,8 +45,20 @@ function TodoProvider({children}){
       {
           const newTodos = [...todos];
           newTodos.unshift({text: text, completed: false})
-          saveTodos(newTodos)
+          const sortedTodos = [...newTodos].sort((a, b) => {
+            // Primero completed: false
+            if (a.completed !== b.completed) {
+              return Number(a.completed) - Number(b.completed);
+            }
+            // Luego orden alfabético por text
+            return a.text.localeCompare(b.text, "es", {
+              sensitivity: "base",
+            });
+          }
+          )
+          saveTodos(sortedTodos)
       }
+      console.log("todos: ",todos);
   }
 
     function  verifyTodo(text) {
